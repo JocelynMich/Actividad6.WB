@@ -2,10 +2,21 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host:"localhost",
+  user:'root',
+  password:'K1m_D0kja20KAJ2M',
+  database: 'DiseñoAplicacionesWeb'
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+connection.connect((error) => {
+  if (error) {
+    console.error('Error al conectar a la base de datos:', error);
+    return;
+  }
+  console.log('Conexión a la base de datos MySQL establecida correctamente.');
 });
+
+module.exports = connection;
