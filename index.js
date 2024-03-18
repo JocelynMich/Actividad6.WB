@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express();
+const index = express();
 const port = 3000;
 
 index.get('/', (req, res) => {
