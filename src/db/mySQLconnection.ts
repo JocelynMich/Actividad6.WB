@@ -1,7 +1,6 @@
-import mysql from "mysql";
+import mysql from "mysql2";
 
 const connection = mysql.createConnection({
-    host:"localhost",
     user:'root',
     password:'K1m_D0kja20KAJ2M',
     database:"DiseñoAplicacionesWeb",
