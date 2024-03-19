@@ -1,11 +1,18 @@
-const express = require('express');
-const index = express();
-const port = 3000;
+import express from 'express'
+import userRouter from './routes/user.routes';
 
-index.get('/', (req, res) => {
-  res.send('Hello, World!');
+
+const app = express();
+
+app.use(express.json());
+
+const PORT = 3000;
+
+app.get('/', (_req,res) => {
+    res.send('Hello world!!')
 });
+app.use('/api/user', userRouter)
 
-index.listen(port, () => {
-  console.log(`Server is running at http://localhost:3000`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

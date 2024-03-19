@@ -5,7 +5,7 @@ export class UserService {
 
     static async getUserById(userId: string): Promise<User | undefined> {
         return new Promise<User>((resolve, reject) => {
-            const query = `SELECT * FROM users WHERE id = ?`;
+            const query = `SELECT * FROM Usuarios WHERE ID_Usuario = ?`;
             connection.query(query, [userId], (error, results) => {
                 if (error) {
                     reject(error);
@@ -18,7 +18,7 @@ export class UserService {
 
     static async getUsers(): Promise<User | undefined> {
         return new Promise<User>((resolve, reject) => {
-            const query = `SELECT * FROM users`;
+            const query = `SELECT * FROM Usuarios`;
             connection.query(query, [], (error, results) => {
                 if (error) {
                     reject(error);
@@ -31,7 +31,7 @@ export class UserService {
 
     static async createUser(userData: Omit<User, 'id_user'>): Promise<User> {
         return new Promise<User>((resolve, reject) => {
-            const query = `INSERT INTO usuarios SET ?`;
+            const query = `INSERT INTO Usuarios SET ?`;
             connection.query(query, userData, (error, results) => {
                 if (error) {
                     reject(error);
