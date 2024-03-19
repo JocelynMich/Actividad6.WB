@@ -3,6 +3,7 @@ import userRouter from './src/usuarios/usuarios.routes';
 
 
 const app = express();
+const express = require('express');
 
 app.use(express.json());
 
